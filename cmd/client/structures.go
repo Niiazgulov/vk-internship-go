@@ -19,15 +19,15 @@ type UpdatesResp struct {
 }
 
 type ResponseMessage struct {
-	ChatID int      `json:"chat_id"`
-	Text   string   `json:"text"`
-	Reply  RKMarkup `json:"reply_markup"`
+	ChatID int                 `json:"chat_id"`
+	Text   string              `json:"text"`
+	Reply  ReplyKeyboardMarkup `json:"reply_markup"`
 }
 
-type RKMarkup struct {
-	Keyboard [][]Button `json:"keyboard"`
+type ReplyKeyboardMarkup struct {
+	Keyboard [][]KeyboardButton `json:"keyboard"`
 }
 
-type Button struct {
+type KeyboardButton struct {
 	Text string `json:"text"`
 }

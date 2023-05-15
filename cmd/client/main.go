@@ -1,6 +1,7 @@
 package client
 
 import (
+	// "bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -90,12 +91,21 @@ func SendMessages(upd Update) error {
 		msg.Text = msgAnekdot3
 	case cmdAnekdot4:
 		msg.Text = msgAnekdot4
-	case "Hello":
-		msg.Text = "Здравствуй, дарагой!"
-		msg.Reply.Keyboard = [][]Button{{{Text: "Кнопка1"}}}
+	case "K":
+		msg.Text = "No probLama"
+		msg.Reply.Keyboard = [][]KeyboardButton{{{Text: "Кнопка1"}, {Text: "Кнопка2"}}, {{Text: "2Кнопка3"}, {Text: "2Кнопка4"}}}
 	default:
 		msg.Text = msgDefault
 	}
+
+	// buffMsg, err := json.Marshal(msg)
+	// if err != nil {
+	// 	return err
+	// }
+	// _, err = http.Post(urlReq.String(), "application/json", bytes.NewBuffer(buffMsg))
+	// if err != nil {
+	// 	return err
+	// }
 
 	q := url.Values{}
 	q.Add("chat_id", strconv.Itoa(msg.ChatID))
